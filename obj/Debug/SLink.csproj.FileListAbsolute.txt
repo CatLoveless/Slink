@@ -1,0 +1,15 @@
+C:\Users\Zerq\documents\visual studio 2012\Projects\ZConsole\SLink\obj\Debug\SLink.csprojResolveAssemblyReference.cache
+C:\Users\Zerq\documents\visual studio 2012\Projects\ZConsole\SLink\bin\SLink.dll
+C:\Users\Zerq\documents\visual studio 2012\Projects\ZConsole\SLink\bin\SLink.pdb
+C:\Users\Zerq\documents\visual studio 2012\Projects\ZConsole\SLink\obj\Debug\SLink.dll
+C:\Users\Zerq\documents\visual studio 2012\Projects\ZConsole\SLink\obj\Debug\SLink.pdb
+Z:\proj\ZConsole\SLink\bin\SLink.dll
+Z:\proj\ZConsole\SLink\bin\SLink.pdb
+Z:\proj\ZConsole\SLink\obj\Debug\SLink.csprojResolveAssemblyReference.cache
+Z:\proj\ZConsole\SLink\obj\Debug\SLink.dll
+Z:\proj\ZConsole\SLink\obj\Debug\SLink.pdb
+C:\inetpub\wwwroot\bin\SLink.dll
+C:\inetpub\wwwroot\bin\SLink.pdb
+C:\inetpub\wwwroot\obj\Debug\SLink.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\obj\Debug\SLink.dll
+C:\inetpub\wwwroot\obj\Debug\SLink.pdb
