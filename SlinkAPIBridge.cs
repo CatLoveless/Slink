@@ -241,7 +241,7 @@ namespace SLink
 
         public string ConvertMethod(string name)
         {
-            return string.Format(@"llParseString2List(""{0}"",["",""],[])",name); 
+            return string.Format(@"llParseString2List({0},["",""],[])",name); 
 
         }
     }
@@ -399,12 +399,28 @@ namespace SLink
 
 
 
+             SLType theSlReturntype = (SLType)Activator.CreateInstance( method.ReturnType);
+
+
 
 
 
                 var url = string.Format("{0}/{1}.ashx",Ip,  this.GetType().Name );
-                startBit.AppendFormat(SlinkFormat.First, MethodName, url, returnType, parameters, string.Join("",parametersValues));
-                endBit.AppendFormat(SlinkFormat.Second, MethodName, returnType);
+                startBit.AppendFormat(SlinkFormat.First,
+                    MethodName, 
+                    url, 
+                    returnType, 
+                    parameters,
+                    string.Join("", parametersValues)
+              
+                    );
+
+
+
+                endBit.AppendFormat(SlinkFormat.Second, MethodName, returnType,
+                    theSlReturntype.ConvertMethod("body")
+                    
+                    );
 
 
             
@@ -431,13 +447,20 @@ namespace SLink
 
           var data_ = reader.ReadToEnd().Replace("?", "");
             var data2 = data_.Split(new char[] { '&' });
-            var data3 = data2.Select(n => 
+            List<KeyValuePair<string, string>> data3 = null;
+            if (data_ != "")
             {
-                var temp = n.Split(new char[] { '=' });
-                return new KeyValuePair<string,string>(temp[0],temp[1]);
-            }
-            ).ToList();
 
+                data3 = data2.Select(n =>
+                {
+                    var temp = n.Split(new char[] { '=' });
+
+
+                    return new KeyValuePair<string, string>(temp[0], temp[1]);
+
+                }
+                ).ToList();
+            }
 
             return data3;
 
@@ -452,7 +475,7 @@ namespace SLink
 
             var body = GetStreamContent();
 
-            var action = body.First(n => n.Key == "action").Value; 
+            var action = HttpContext.Current.Request.QueryString["action"] ?? body.First(n => n.Key == "action").Value  ;
 
 
             if (action != "__GETSCRIPT")
@@ -484,9 +507,9 @@ namespace SLink
             if (returnobj != null)
             {
                 HttpContext.Current.Response.Write(        
-                    returnobj.ConvertMethod( 
+                    
                     returnobj.ToString()
-                    )
+                    
                     );
             }
 

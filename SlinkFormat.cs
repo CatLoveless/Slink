@@ -12,9 +12,9 @@ namespace SLink
 {0}({3})
 {{ {0}Id=llHTTPRequest(""{1}"", [HTTP_METHOD,""POST""],{4}); }}
 
-{0}Callback({2} data){{   }}";
+{0}Callback({2}  data){{   }}";
 
-  public static string Second = @"if ({0}Id == request_id){{ {0}Callback(({1}) body); }}";
+  public static string Second = @"if ({0}Id == request_id){{ {0}Callback({2}); }}";
 
   public static string SecondWrap = @"
 
